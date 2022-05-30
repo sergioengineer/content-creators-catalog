@@ -1,10 +1,14 @@
-import { Process, Processor } from '@nestjs/bull';
-import { Job } from 'bull';
+import { InjectQueue, Process, Processor } from '@nestjs/bull';
+import { Queue } from 'bull';
 
 @Processor('content-update')
 export class ContentUpdateConsumer {
+  constructor(@InjectQueue('content-update') private readonly queue: Queue) {}
+
   @Process('content-update-request')
-  updateContet(job: Job) {
-    console.log('content update consumer test', job.data);
+  async updateContet() {
+    console.log('consumer');
+    const jobs = await this.queue.getWaiting();
+    jobs.forEach((job) => job.remove());
   }
 }

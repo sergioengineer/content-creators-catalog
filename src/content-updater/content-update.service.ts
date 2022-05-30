@@ -9,13 +9,18 @@ export class ContentUpdateService {
 
   @Timeout(500)
   async startUp() {
+    console.log('startup');
     await this.queue.clean(0);
     this.queue.add(
       'content-update-request',
       {},
       {
-        lifo: true,
-        repeat: { cron: CronExpression.EVERY_10_SECONDS },
+        lifo: false,
+        removeOnComplete: true,
+        removeOnFail: true,
+        repeat: {
+          cron: CronExpression.EVERY_SECOND,
+        },
       },
     );
   }
