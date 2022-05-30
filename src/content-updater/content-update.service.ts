@@ -19,7 +19,7 @@ export class ContentUpdateService {
         removeOnComplete: true,
         removeOnFail: true,
         repeat: {
-          cron: CronExpression.EVERY_SECOND,
+          cron: CronExpression.EVERY_30_SECONDS,
         },
       },
     );

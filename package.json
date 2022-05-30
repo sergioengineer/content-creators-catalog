@@ -28,6 +28,8 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/schedule": "^2.0.1",
     "bull": "^4.8.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "helmet": "^5.1.0",
     "mongoose": "^6.3.4",
     "redis": "^3",

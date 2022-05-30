@@ -1,5 +1,6 @@
 import { BullModule } from '@nestjs/bull';
 import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -14,6 +15,7 @@ import { ContentUpdateModule } from './content-updater/content-update.module';
         port: 6379,
       },
     }),
+    MongooseModule.forRoot('mongodb://mongodb/CCC'),
     ScheduleModule.forRoot(),
     ContentUpdateModule,
     ContentCreatorModule,
