@@ -9,7 +9,10 @@ export class ContentCreator {
   name: string;
 
   @Prop({ required: true, default: [] })
-  socialLinks: string[];
+  socialUrls: string[];
+
+  @Prop({ required: true })
+  platformUrl: string;
 }
 
 export const ContentCreatorSchema =

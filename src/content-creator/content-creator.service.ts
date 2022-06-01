@@ -20,12 +20,14 @@ export class ContentCreatorService {
     return contentCreator;
   }
   async update(updateDTO: UpdateContentCreatorDTO): Promise<ContentCreator> {
-    const contentCreator = this.contentCreatorModel.create(updateDTO);
+    const contentCreator = this.contentCreatorModel.findOneAndUpdate({
+      _id: updateDTO.id,
+    });
     return contentCreator;
   }
 
   async read(id: string) {
-    !!id
+    return !!id
       ? this.contentCreatorModel.findById(id)
       : this.contentCreatorModel.find();
   }

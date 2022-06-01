@@ -12,15 +12,20 @@ export class ContentService {
   ) {}
 
   async create(createDTO: CreateContentDTO) {
-    this.contentModel.create(createDTO);
+    return await this.contentModel.create(createDTO);
   }
 
   async read(id) {
-    !!id ? this.contentModel.findById(id) : this.contentModel.find();
+    return !!id ? this.contentModel.findById(id) : this.contentModel.find();
   }
 
   async update(updateDTO: UpdateContentDTO) {
-    this.contentModel.updateOne({ _id: updateDTO.id }, updateDTO);
+    const content = await this.contentModel.findOneAndUpdate(
+      { _id: updateDTO.id },
+      updateDTO,
+    );
+
+    return content;
   }
 
   async delete(id) {
