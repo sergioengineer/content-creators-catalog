@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ContentCreatorModule } from './content-creator/content-creator.module';
 import { ContentUpdateModule } from './content-updater/content-update.module';
+import { ContentModule } from './content/content.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ContentUpdateModule } from './content-updater/content-update.module';
     ScheduleModule.forRoot(),
     ContentUpdateModule,
     ContentCreatorModule,
+    ContentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
