@@ -1,6 +1,18 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class UpdateContentDTO {
   @IsNotEmpty()
-  id: string;
+  _id: string;
+
+  @IsString()
+  title: string;
+
+  @IsString()
+  url: string;
+
+  @IsOptional()
+  thumbnail: Blob;
+
+  @IsArray()
+  tags: string[];
 }

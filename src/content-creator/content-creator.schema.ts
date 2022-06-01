@@ -8,11 +8,14 @@ export class ContentCreator {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true, default: [] })
+  @Prop({ type: [String], required: true, default: [] })
   socialUrls: string[];
 
   @Prop({ required: true })
   platformUrl: string;
+
+  @Prop()
+  picture: Blob;
 }
 
 export const ContentCreatorSchema =

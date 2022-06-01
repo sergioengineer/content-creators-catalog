@@ -21,7 +21,7 @@ export class ContentService {
 
   async update(updateDTO: UpdateContentDTO) {
     const content = await this.contentModel.findOneAndUpdate(
-      { _id: updateDTO.id },
+      { _id: updateDTO._id },
       updateDTO,
     );
 

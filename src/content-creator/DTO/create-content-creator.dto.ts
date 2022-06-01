@@ -1,8 +1,16 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class CreateContentCreatorDTO {
   @IsNotEmpty()
   name: string;
 
-  @IsNotEmpty()
+  @IsOptional()
+  @IsArray()
   socialUrls: string[];
+
+  @IsString()
+  @IsNotEmpty()
+  platformUrl: string;
+
+  @IsOptional()
+  picture: Blob;
 }
